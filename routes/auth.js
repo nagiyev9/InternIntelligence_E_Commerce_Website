@@ -11,15 +11,15 @@ const { validate_register, handle_validation_errors } = require('../middlewares/
 
 
 // Login 
-router.use('/login', limiter, authController.login);
+router.post('/login', limiter, authController.login);
 
 // Register
-router.use('/register', validate_register, handle_validation_errors, authController.register);
+router.post('/register', validate_register, handle_validation_errors, authController.register);
 
 // Logout
-router.use('/logout', authController.logout);
+router.post('/logout', authController.logout);
 
 // Refresh Token 
-router.use('/refresh-token', authController.refreshAccessToken);
+router.post('/refresh-token', authController.refreshAccessToken);
 
 module.exports = router;

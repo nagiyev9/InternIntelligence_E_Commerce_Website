@@ -5,11 +5,11 @@ const mongoose = require('mongoose');
 const TokenSchema = mongoose.Schema({
     token: {
         type: String,
-        require: false
+        required: false
     },
     expiresAt: {
         type: Date,
-        require: true
+        required: true
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
