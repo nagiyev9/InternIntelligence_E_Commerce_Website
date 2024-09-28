@@ -76,7 +76,7 @@ exports.login = async (req, res) => {
 
 // Logout 
 exports.logout = async (req, res) => {
-    const { userID } = req.params;
+    const { userID } = req.user;
     try {
         const result = await authService.logout(userID);
         res.status(200).json(result);
