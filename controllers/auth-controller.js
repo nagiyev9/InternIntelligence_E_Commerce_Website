@@ -76,9 +76,9 @@ exports.login = async (req, res) => {
 
 // Logout 
 exports.logout = async (req, res) => {
-    const { id } = req.params;
+    const { userID } = req.params;
     try {
-        const result = await authService.logout(id);
+        const result = await authService.logout(userID);
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json(error)

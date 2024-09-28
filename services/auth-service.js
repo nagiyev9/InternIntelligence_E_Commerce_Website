@@ -82,8 +82,8 @@ exports.login = async user => {
 
     await this.removeExpiredToken();
 
-    const accessToken = jwt.sign({ email: user.email }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
-    const refreshToken = jwt.sign({ email: user.email }, process.env.JWT_REFRESH_SECRET_KEY, { expiresIn: '30d' });
+    const accessToken = jwt.sign({ userID: isExist._id, email: user.email }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+    const refreshToken = jwt.sign({ userID: isExist._id, email: user.email }, process.env.JWT_REFRESH_SECRET_KEY, { expiresIn: '30d' });
 
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 30);
